@@ -1,0 +1,167 @@
+/* Header Section */
+header {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+header .header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+}
+
+header .header-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Carousel */
+.carousel-item img {
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Showcase and Other Sections */
+.showcase {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.showcase-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.showcase-item {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.showcase-item img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.timeline {
+    margin-top: 40px;
+}
+
+.timeline-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.timeline-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.contact-info {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styling for Button Containers */
+.auth-buttons {
+    display: flex;
+    gap: 10px; /* Spacing between the buttons */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.user-greeting {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.logout-btn {
+    background-color: #d9534f; /* Red for logout */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+.signup-btn, .signin-btn {
+    background-color: #5bc0de; /* Light blue for sign up/sign in */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover, .signin-btn:hover {
+    background-color: #31b0d5; /* Darker blue on hover */
+}
+
+.signup-btn a, .signin-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.signup-btn a:hover, .signin-btn a:hover {
+    text-decoration: underline;
+}
+
+/* Style for buttons in the header */
+.auth-buttons .btn {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.auth-buttons .btn:hover {
+    background-color: #0056b3;
+}
+
+.user-greeting .logout-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.user-greeting .logout-btn:hover {
+    background-color: #c9302c; /* Darker red */
+}
+
+.welcome-text {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}

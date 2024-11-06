@@ -1,0 +1,183 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'indexx.css' %}">
+</head>
+<body>
+    <div class="constainer">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+
+        <h3 class="welcome-text">Welcome to Vizag Steel Plant!</h3>
+
+
+        {% if user.is_authenticated %}
+        <div class="user-greeting">
+            <h3>Hello, {{fname}}!</h3>
+            <h4>You're successfully logged in.</h4>
+            <button class="btn logout-btn"><a href="/signout">Sign Out</a></button>
+        </div>
+        {% else %}
+        <div class="auth-buttons">
+            <button class="btn signup-btn"><a href="/signup">Sign Up</a></button>
+            <button class="btn signin-btn"><a href="/signin">Sign In</a></button>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Vizag Steel Plant</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'indexx.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section with Logo and Heading -->
+    <header>
+        <div class="header-container">
+            <img src="{% static 'images/vsp_logo.jpg' %}" alt="Vizag Steel Plant Logo" class="logo">
+            <h1 class="header-title">Vizag Steel Plant</h1>
+        </div>
+    </header>
+
+    <!-- Carousel/Slider Section -->
+    <section id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/slider11.jpg' %}" class="d-block w-100" alt="Steel Manufacturing">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/slider2.jpg' %}" class="d-block w-100" alt="Steel Plant Overview">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/slider3.jpeg' %}" class="d-block w-100" alt="Product Showcase">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </section>
+
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+
+        <h3 class="welcome-text">Welcome to Vizag Steel Plant!</h3>
+
+        {% if user.is_authenticated %}
+        <div class="user-greeting">
+            <h3>Hello, {{fname}}!</h3>
+            <h4>You're successfully logged in.</h4>
+            <button class="btn logout-btn"><a href="/signout">Sign Out</a></button>
+        </div>
+        {% else %}
+        <div class="auth-buttons">
+            <button class="btn signup-btn"><a href="/signup">Sign Up</a></button>
+            <button class="btn signin-btn"><a href="/signin">Sign In</a></button>
+        </div>
+        {% endif %}
+
+        <!-- Showcase Section -->
+        <section class="showcase">
+            <h2>Explore Vizag Steel Plant</h2>
+            <div class="showcase-items">
+                <!-- Section for Company Overview -->
+                <div class="showcase-item">
+                    <h3>About Vizag Steel Plant</h3>
+                    <p>Located in Visakhapatnam, Andhra Pradesh, Vizag Steel Plant is one of the leading steel manufacturers in India, providing quality steel products for various industries.</p>
+                    <img src="{% static 'images/vsp_about.jpg' %}" alt="Vizag Steel Plant Overview">
+                </div>
+
+                <!-- Section for Products -->
+                <div class="showcase-item">
+                    <h3>Our Products</h3>
+                    <p>We manufacture a wide range of steel products, including bars, billets, and coils, catering to construction, automotive, and other industries.</p>
+                    <img src="{% static 'images/vsp_products.jpeg' %}" alt="Steel Products">
+                </div>
+
+                <!-- Section for Sustainability -->
+                <div class="showcase-item">
+                    <h3>Sustainability Initiatives</h3>
+                    <p>We are committed to sustainable practices, with initiatives for reducing carbon emissions, waste management, and energy efficiency.</p>
+                    <img src="{% static 'images/vsp_sustainability.webp' %}" alt="Sustainability">
+                </div>
+
+                <!-- Section for Future Vision -->
+                <div class="showcase-item">
+                    <h3>Our Future Vision</h3>
+                    <p>Vizag Steel Plant aims to expand its operations and enhance its technological capabilities to become a global leader in steel manufacturing.</p>
+                    <img src="{% static 'images/vsp_future.jpg' %}" alt="Future Vision">
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline">
+            <h2>Our History</h2>
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <h4>1982</h4>
+                    <p>Vizag Steel Plant was established to meet the growing demand for steel in India.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>1992</h4>
+                    <p>Production of high-quality steel products began, expanding the plant’s production capacity.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2000</h4>
+                    <p>Introduction of new technologies to improve the plant’s sustainability and efficiency.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Present</h4>
+                    <p>Vizag Steel Plant is a leading supplier of quality steel to national and international markets.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="contact-info">
+            <h2>Contact Us</h2>
+            <p>If you have any inquiries or would like to know more about our products, feel free to reach out to us.</p>
+            <ul>
+                <li><strong>Email:</strong> info@vsp.com</li>
+                <li><strong>Phone:</strong> +91 123 456 7890</li>
+                <li><strong>Address:</strong> Steel Plant Road, Visakhapatnam, Andhra Pradesh</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <!-- Bootstrap JS (Optional for Carousel Functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
