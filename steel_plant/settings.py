@@ -74,7 +74,7 @@ TEMPLATES = [
         },
     },
 ]
-
+ 
 WSGI_APPLICATION = 'steel_plant.wsgi.application'
 
 
