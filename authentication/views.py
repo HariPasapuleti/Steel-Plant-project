@@ -10,12 +10,16 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.auth import authenticate, login, logout
 from . tokens import generate_token
+from django.contrib.auth.decorators import login_required
+
+# from django.views.decorators.csrf import csrf_protect
 
 
 # Create your views here.
 def home(request):
     return render(request, "authentication/index.html")
 
+# @csrf_protect
 def signup(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -114,7 +118,7 @@ def signin(request):
             login(request, user)
             fname = user.first_name
             # messages.success(request, "Logged In Sucessfully!!")
-            return render(request, "authentication/index.html",{"fname":fname})
+            return redirect("machine_details")
         else:
             messages.error(request, "Bad Credentials!!")
             return redirect('home')
@@ -126,3 +130,13 @@ def signout(request):
     logout(request)
     messages.success(request, "Logged Out Successfully!!")
     return redirect('home')
+
+@login_required
+def machine_details(request):
+    # Sample machine data (you could replace this with data from your database)
+    machines = [
+        {"id": 1, "name": "Machine A", "status": "Active", "location": "Sector 1"},
+        {"id": 2, "name": "Machine B", "status": "Maintenance", "location": "Sector 2"},
+        {"id": 3, "name": "Machine C", "status": "Inactive", "location": "Sector 3"},
+    ]
+    return render(request, "authentication/machine_details.html", {"machines": machines})

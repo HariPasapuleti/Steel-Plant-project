@@ -70,7 +70,7 @@ header .header-title {
 
 .timeline-item {
     padding: 15px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #4e4b4b;
 }
 
 .contact-info {
@@ -96,20 +96,34 @@ header .header-title {
     margin-top: 30px;
 }
 
+/* General Button Styling */
 .logout-btn {
-    background-color: #d9534f; /* Red for logout */
-    color: white;
-    border: none;
+    background-color: #252628; /* Customize with your desired color */
+    color: rgb(219, 176, 176);
     padding: 10px 20px;
-    font-size: 16px;
+    border: none;
     border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Smooth color transition */
 }
 
-.logout-btn:hover {
-    background-color: #c9302c; /* Darker red on hover */
+.logout-btn a {
+    color: rgb(68, 41, 108); /* Ensure link text color is white */
+    text-decoration: none; /* Remove underline */
 }
+
+.logout-btn a:hover {
+    color: rgb(23, 6, 6); /* Keep text color consistent on hover */
+}
+
+/* Hover Effect */
+.logout-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
 
 .signup-btn, .signin-btn {
     background-color: #5bc0de; /* Light blue for sign up/sign in */
@@ -142,7 +156,7 @@ header .header-title {
     font-size: 14px;
     border-radius: 4px;
     background-color: #007bff;
-    color: white;
+    color: rgb(27, 10, 10);
     border: none;
 }
 
@@ -151,7 +165,7 @@ header .header-title {
 }
 
 .user-greeting .logout-btn a {
-    color: white;
+    color: rgb(250, 250, 250);
     text-decoration: none;
 }
 
