@@ -1,0 +1,70 @@
+<!-- machine_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Details</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="d-flex justify-content-between align-items-center p-3 bg-dark text-white">
+        <h1>Machine Details</h1>
+        <a href="{% url 'machine_add' %}" class="btn btn-primary mb-3">Add New Machine</a>
+        <a href="{% url 'signout' %}" class="btn btn-light">Logout</a>
+    </header>
+
+    <div class="container mt-4">
+        <h3 class="mb-4">Hello, {{ user.username }}!</h3>
+
+        <!-- Machines List -->
+        <div>
+            {% for machine in machines %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ machine.name }}</h5>
+                        {% if machine.image %}
+                            <img src="{{ machine.image.url }}" alt="{{ machine.name }}" class="img-thumbnail" style="max-width: 200px;">
+                        {% else %}
+                            <p>No Image Available</p>
+                        {% endif %}
+                    </div>
+                    <div class="ml-4">
+                        {% if machine.qr_code %}
+                            <h6>Machine QR Code</h6>
+                            <img src="{{ machine.qr_code.url }}" alt="QR Code" class="img-thumbnail" style="max-width: 200px;">
+                        {% else %}
+                            <p>No QR Code Available</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Machine Complaint Box -->
+                    <div class="card-body">
+                        <h6>Submit a Complaint</h6>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="machine_id" value="{{ machine.id }}">
+
+                            <div class="mb-3">
+                                <label for="complaints" class="form-label">Complaint</label>
+                                <textarea name="complaints" id="complaints" class="form-control" rows="4"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger">Submit Complaint</button>
+                        </form>
+                    </div>
+
+                    {% if machine.complaints %}
+                        <div class="card-footer">
+                            <h6>Previous Complaints:</h6>
+                            <p>{{ machine.complaints }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

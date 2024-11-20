@@ -118,9 +118,9 @@ def signin(request):
             login(request, user)
             fname = user.first_name
             # messages.success(request, "Logged In Sucessfully!!")
-            return redirect("machine_details")
+            return redirect("machine_list")
         else:
-            messages.error(request, "Bad Credentials!!")
+            messages.error(request, "Invalid Credentials!!")
             return redirect('home')
     
     return render(request, "authentication/signin.html")
@@ -130,13 +130,3 @@ def signout(request):
     logout(request)
     messages.success(request, "Logged Out Successfully!!")
     return redirect('home')
-
-@login_required
-def machine_details(request):
-    # Sample machine data (you could replace this with data from your database)
-    machines = [
-        {"id": 1, "name": "Machine A", "status": "Active", "location": "Sector 1"},
-        {"id": 2, "name": "Machine B", "status": "Maintenance", "location": "Sector 2"},
-        {"id": 3, "name": "Machine C", "status": "Inactive", "location": "Sector 3"},
-    ]
-    return render(request, "authentication/machine_details.html", {"machines": machines})

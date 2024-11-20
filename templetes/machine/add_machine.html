@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Machine</title>
+    <style>
+        /* Container style for latitude and longitude inputs with a geolocation button */
+        .location-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .location-input {
+            width: 100%;
+            padding: 8px;
+        }
+        .location-button {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add New Machine</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{ form.name.label }}<br>
+            {{ form.name }}
+        </div>
+        <div>
+            {{ form.model.label }}<br>
+            {{ form.model }}
+        </div>
+        <div>
+            {{ form.company.label }}<br>
+            {{ form.company }}
+        </div>
+        <div>
+            {{ form.description.label }}<br>
+            {{ form.description }}
+        </div>
+        <div>
+            {{ form.image.label }}<br>
+            {{ form.image }}
+        </div>
+
+        <!-- Separate latitude and longitude fields -->
+        <div class="location-container">
+            <input type="text" id="latitude" name="latitude" class="location-input" placeholder="Latitude" readonly>
+            <input type="text" id="longitude" name="longitude" class="location-input" placeholder="Longitude" readonly>
+            <button type="button" class="location-button" onclick="getLocation()">📍</button>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Get the current location and update the latitude and longitude fields
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const latitude = position.coords.latitude.toFixed(6);
+                    const longitude = position.coords.longitude.toFixed(6);
+                    document.getElementById('latitude').value = latitude;
+                    document.getElementById('longitude').value = longitude;
+                }, function(error) {
+                    alert("Unable to retrieve location. Please check permissions.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+</body>
+</html>

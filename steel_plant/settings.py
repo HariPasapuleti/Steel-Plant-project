@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authentication',
+    'machine_form'
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ## Added MEDIA_ROOT to the senting file
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+LOGIN_URL = '/signin'  # Redirect to login page
+LOGIN_REDIRECT_URL = '/machine-details/'  # Redirect after login
