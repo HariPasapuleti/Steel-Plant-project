@@ -8,7 +8,7 @@ import os
 class Machine(models.Model):
     name = models.CharField(max_length=100)
     model = models.CharField(max_length=50)
-    company = models.CharField(max_length=255, default="Default Company Name")
+    company = models.CharField(max_length=255, default="")
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     description = models.TextField()

@@ -123,14 +123,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# APPEND_SLASH = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "steel_plant" / "static",
+    BASE_DIR / "static",
 ]
 
 # Default primary key field type

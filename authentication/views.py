@@ -17,7 +17,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
-    return render(request, "authentication/index.html")
+    return render(request, "authentication/index.html", {'MEDIA_URL': settings.MEDIA_URL})
 
 # @csrf_protect
 def signup(request):

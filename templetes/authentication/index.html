@@ -1,43 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'indexx.css' %}">
-</head>
-<body>
-    <div class="constainer">
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong>Message:</strong> {{ message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endfor %}
-
-        <h3 class="welcome-text">Welcome to Vizag Steel Plant!</h3>
-
-
-        {% if user.is_authenticated %}
-        <div class="user-greeting">
-            <h3>Hello, {{fname}}!</h3>
-            <h4>You're successfully logged in.</h4>
-            <button class="btn logout-btn"><a href="/signout">Sign Out</a></button>
-        </div>
-        {% else %}
-        <div class="auth-buttons">
-            <button class="btn signup-btn"><a href="/signup">Sign Up</a></button>
-            <button class="btn signin-btn"><a href="/signin">Sign In</a></button>
-        </div>
-        {% endif %}
-    </div>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,29 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page - Vizag Steel Plant</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'indexx.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header Section with Logo and Heading -->
     <header>
         <div class="header-container">
-            <img src="{% static 'images/vsp_logo.jpg' %}" alt="Vizag Steel Plant Logo" class="logo">
+            <img src="{{ MEDIA_URL }}images/vsp_logo.jpg" alt="Vizag Steel Plant Logo" class="logo">
             <h1 class="header-title">Vizag Steel Plant</h1>
         </div>
+    
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul class="navbar-links">
+                <li><a href="#explore" class="navbar-link">Explore</a></li>
+                <li><a href="#history" class="navbar-link">History</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/signout" class="navbar-link">Sign Out</a></li>
+                {% else %}
+                <li><a href="/signin" class="navbar-link">Sign In</a></li>
+                <li><a href="/signup" class="navbar-link">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
     </header>
+    
+    
 
     <!-- Carousel/Slider Section -->
     <section id="carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{% static 'images/slider111.jpg' %}" class="d-block w-100" alt="Steel Manufacturing">
+                <img src="{{ MEDIA_URL }}images/slider111.jpg" class="d-block w-100" alt="Steel Manufacturing">
             </div>
             <div class="carousel-item">
-                <img src="{% static 'images/slider2.jpg' %}" class="d-block w-100" alt="Steel Plant Overview">
+                <img src="{{ MEDIA_URL }}images/slider2.jpg" class="d-block w-100" alt="Steel Plant Overview">
             </div>
             <div class="carousel-item">
-                <img src="{% static 'images/slider3.jpeg' %}" class="d-block w-100" alt="Product Showcase">
+                <img src="{{ MEDIA_URL }}images/slider3.jpeg" class="d-block w-100" alt="Product Showcase">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
@@ -91,57 +67,42 @@
         </div>
         {% endfor %}
 
-        <h3 class="welcome-text">Welcome to Vizag Steel Plant!</h3>
-
-        {% if user.is_authenticated %}
-        <div class="user-greeting">
-            <h3>Hello, {{fname}}!</h3>
-            <h4>You're successfully logged in.</h4>
-            <button class="btn logout-btn"><a href="/signout">Sign Out</a></button>
-        </div>
-        {% else %}
-        <div class="auth-buttons">
-            <button class="btn signup-btn"><a href="/signup">Sign Up</a></button>
-            <button class="btn signin-btn"><a href="/signin">Sign In</a></button>
-        </div>
-        {% endif %}
-
         <!-- Showcase Section -->
-        <section class="showcase">
+        <section id="explore" class="showcase">
             <h2>Explore Vizag Steel Plant</h2>
             <div class="showcase-items">
                 <!-- Section for Company Overview -->
                 <div class="showcase-item">
                     <h3>About Vizag Steel Plant</h3>
                     <p>Located in Visakhapatnam, Andhra Pradesh, Vizag Steel Plant is one of the leading steel manufacturers in India, providing quality steel products for various industries.</p>
-                    <img src="{% static 'images/vsp_about.jpg' %}" alt="Vizag Steel Plant Overview">
+                    <img src="{{ MEDIA_URL }}images/vsp_about.jpg" alt="Vizag Steel Plant Overview">
                 </div>
 
                 <!-- Section for Products -->
                 <div class="showcase-item">
                     <h3>Our Products</h3>
                     <p>We manufacture a wide range of steel products, including bars, billets, and coils, catering to construction, automotive, and other industries.</p>
-                    <img src="{% static 'images/vsp_products.jpeg' %}" alt="Steel Products">
+                    <img src="{{ MEDIA_URL }}images/vsp_products.jpeg" alt="Steel Products">
                 </div>
 
                 <!-- Section for Sustainability -->
                 <div class="showcase-item">
                     <h3>Sustainability Initiatives</h3>
                     <p>We are committed to sustainable practices, with initiatives for reducing carbon emissions, waste management, and energy efficiency.</p>
-                    <img src="{% static 'images/vsp_sustainability.webp' %}" alt="Sustainability">
+                    <img src="{{ MEDIA_URL }}images/vsp_sustainability.webp" alt="Sustainability">
                 </div>
 
                 <!-- Section for Future Vision -->
                 <div class="showcase-item">
                     <h3>Our Future Vision</h3>
                     <p>Vizag Steel Plant aims to expand its operations and enhance its technological capabilities to become a global leader in steel manufacturing.</p>
-                    <img src="{% static 'images/vsp_future.jpg' %}" alt="Future Vision">
+                    <img src="{{ MEDIA_URL }}images/vsp_future.jpg" alt="Future Vision">
                 </div>
             </div>
         </section>
 
         <!-- Timeline Section -->
-        <section class="timeline">
+        <section id="history" class="timeline">
             <h2>Our History</h2>
             <div class="timeline-items">
                 <div class="timeline-item">

@@ -4,32 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Machine</title>
-    <style>
-        /* Container style for latitude and longitude inputs with a geolocation button */
-        .location-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .location-input {
-            width: 100%;
-            padding: 8px;
-        }
-        .location-button {
-            padding: 10px;
-            cursor: pointer;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/add_machine.css' %}"> <!-- Link to the external CSS file -->
 </head>
 <body>
-    <h1>Add New Machine</h1>
-
     <form method="post" enctype="multipart/form-data">
+        <h1>Add New Machine</h1> <!-- This will appear at the top of the form -->
+        
         {% csrf_token %}
         <div>
             {{ form.name.label }}<br>

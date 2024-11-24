@@ -1,0 +1,236 @@
+/* Header Styles */
+header {
+    background-color: #00274d; /* Dark blue background */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo and Title Container */
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo Styles */
+.logo {
+    height: 60px;
+    width: auto;
+    margin-right: 20px;
+}
+
+/* Header Title Styles */
+.header-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.navbar-link:hover {
+    background-color: #ff9900; /* Accent hover color */
+    color: #00274d; /* Text color change */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-link {
+        margin: 5px 0;
+    }
+}
+/* Carousel */
+.carousel-item img {
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Showcase and Other Sections */
+.showcase {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.showcase-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.showcase-item {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.showcase-item img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.timeline {
+    margin-top: 40px;
+}
+
+.timeline-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.timeline-item {
+    padding: 15px;
+    border-bottom: 1px solid #4e4b4b;
+}
+
+.contact-info {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styling for Button Containers */
+.auth-buttons {
+    display: flex;
+    gap: 10px; /* Spacing between the buttons */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.user-greeting {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* General Button Styling */
+.logout-btn {
+    background-color: #252628; /* Customize with your desired color */
+    color: rgb(219, 176, 176);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.logout-btn a {
+    color: rgb(68, 41, 108); /* Ensure link text color is white */
+    text-decoration: none; /* Remove underline */
+}
+
+.logout-btn a:hover {
+    color: rgb(23, 6, 6); /* Keep text color consistent on hover */
+}
+
+/* Hover Effect */
+.logout-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+.signup-btn, .signin-btn {
+    background-color: #5bc0de; /* Light blue for sign up/sign in */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover, .signin-btn:hover {
+    background-color: #31b0d5; /* Darker blue on hover */
+}
+
+.signup-btn a, .signin-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.signup-btn a:hover, .signin-btn a:hover {
+    text-decoration: underline;
+}
+
+/* Style for buttons in the header */
+.auth-buttons .btn {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: rgb(27, 10, 10);
+    border: none;
+}
+
+.auth-buttons .btn:hover {
+    background-color: #0056b3;
+}
+
+.user-greeting .logout-btn a {
+    color: rgb(250, 250, 250);
+    text-decoration: none;
+}
+
+.user-greeting .logout-btn:hover {
+    background-color: #c9302c; /* Darker red */
+}
+
+.welcome-text {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
