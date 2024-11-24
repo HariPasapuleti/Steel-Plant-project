@@ -2,4 +2,6 @@ venv
 db.sqlite3
 steel_plant/__pycache__
 authentication/__pycache__
-staticfiles
+staticfiles/admin
+authentication/migrations
+steel_plant/migrations
