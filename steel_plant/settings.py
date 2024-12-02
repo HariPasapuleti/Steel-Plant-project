@@ -34,8 +34,8 @@ SECRET_KEY = 'django-insecure-y7ct14b2@9%vjcek5+_326e^0uput)boq4=6t#(w!@m+ld&c^v
 DEBUG = True
 
 # ALLOWED_HOSTS = ['.vercel.app']
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -52,8 +52,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMidd leware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # newly added for loading static files on vercel.
+    'django.middleware.security.SecurityMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', # newly added for loading static files on vercel.
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,7 +136,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" // For deployment
 
 
 # Default primary key field type
