@@ -8,14 +8,12 @@
     ],
     "routes": [
         {
+            "src": "/static/(.*)",
+            "dest": "/staticfiles/$1"
+        },
+        {
             "src": "/(.*)",
             "dest": "steel_plant/wsgi.py"
         }
-    ],
-    "env": {
-        "DJANGO_SETTINGS_MODULE": "steel_plant.settings"
-    },
-    "postbuild": {
-        "command": "python manage.py migrate && python manage.py collectstatic --noinput"
-    }
+    ]
 }
