@@ -1,18 +1,13 @@
 {
-    "builds": [
-        {
-            "src": "steel_plant/wsgi.py",
-            "use": "@vercel/python",
-            "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-        }
-    ],
+    "builds": [{
+        "src": "steel_plant/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "steel_plant/wsgi.py"
+            "dest": "steel/wsgi.py"
         }
-    ],
-    "postbuild": {
-        "command": "python manage.py migrate && python manage.py collectstatic --noinput"
-    }
+    ]
 }
