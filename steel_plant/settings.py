@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from . info import *
+import os
 # import django_heroku
 
 # django_heroku.settings(locals())
@@ -20,11 +21,11 @@ from . info import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-EMAIL_USE_TLS = EMAIL_USE_TLS
-EMAIL_HOST = EMAIL_HOST
-EMAIL_HOST_USER = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-EMAIL_PORT = EMAIL_PORT
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', True)  # Default to True if not set
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')  # Default to Gmail SMTP server
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'hari9000kmph@gmail.com')  # Replace with your email if not set
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'brrm dnbr iueu vmlb ')  # Replace with your email password
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))  # Default to 587 (SMTP port for Gmail)
 
 
 
@@ -32,13 +33,13 @@ EMAIL_PORT = EMAIL_PORT
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y7ct14b2@9%vjcek5+_326e^0uput)boq4=6t#(w!@m+ld&c^v'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-y7ct14b2@9%vjcek5+_326e^0uput)boq4=6t#(w!@m+ld&c^v')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # ALLOWED_HOSTS = ['.vercel.app']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 # ALLOWED_HOSTS = ['.onrender.com']
 
 
@@ -93,7 +94,8 @@ WSGI_APPLICATION = 'steel_plant.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': '/var/lib/sqlite/db.sqlite3',
     }
 }
 
