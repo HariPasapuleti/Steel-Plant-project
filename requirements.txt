@@ -1,5 +1,15 @@
+asgiref==3.8.1
+colorama==0.4.6
+dj-database-url==2.3.0
 Django==5.1.1
-Pillow==11.0.0
+django-heroku==0.3.1
+gunicorn==23.0.0
+packaging==24.2
+pillow==11.0.0
+psycopg2==2.9.10
 qrcode==8.0
 six==1.16.0
-whitenoise==6.5.0 
+sqlparse==0.5.2
+typing_extensions==4.12.2
+tzdata==2024.2
+whitenoise==6.5.0

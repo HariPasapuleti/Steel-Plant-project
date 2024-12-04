@@ -15,4 +15,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'steel_plant.settings')
 
 application = get_wsgi_application()
 
-# app = application # for deployment
+app = application # for deployment
