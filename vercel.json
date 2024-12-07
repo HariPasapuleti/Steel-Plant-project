@@ -7,7 +7,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "steel/wsgi.py"
+            "dest": "steel_plant/wsgi.py"
         }
     ]
 }
