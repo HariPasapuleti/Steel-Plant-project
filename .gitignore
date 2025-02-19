@@ -5,3 +5,4 @@ authentication/.__pycache__
 # staticfiles/admin
 # authentication/migrations
 # steel_plant/migrations
+.env
