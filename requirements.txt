@@ -6,5 +6,5 @@ qrcode==8.0
 six==1.16.0
 whitenoise==6.5.0
 python-decouple
-psycopg2
+psycopg2-binary==2.9.10
 
