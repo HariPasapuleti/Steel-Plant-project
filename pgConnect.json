@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "steel_plant_connection",
+            "Group": "GROUP_TEST",
+            "Host": "pg-539ae35-steel-plant.h.aivencloud.com",
+            "Port": 15211,
+            "MaintenanceDB": "steel_plant",
+            "Username": "avnadmin",
+            "SSLMode": "require"
+        }
+    }
+}

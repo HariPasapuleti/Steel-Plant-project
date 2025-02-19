@@ -100,14 +100,28 @@ WSGI_APPLICATION = 'steel_plant.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config('DATABASE_NAME'),
+#         'USER': config('DATABASE_USER'),
+#         'PASSWORD': config('DATABASE_PASSWORD'),
+#         'HOST': config('DATABASE_HOST', default='localhost'),
+#         'PORT': config('DATABASE_PORT', default='5432'),
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DATABASE_NAME'),
-        'USER': config('DATABASE_USER'),
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': config('DATABASE_HOST', default='localhost'),
-        'PORT': config('DATABASE_PORT', default='5432'),
+        'NAME': config('DATABASE_NAME', default='defaultdb'),
+        'USER': config('DATABASE_USER', default='avnadmin'),
+        'PASSWORD': config('DATABASE_PASSWORD', default='AVNS_NMmgBeypc2J-RjIl2'),
+        'HOST': config('DATABASE_HOST', default='pg-539ae35-steel-plant.h.aivencloud.com'),
+        'PORT': config('DATABASE_PORT', default='15211'),
+        'OPTIONS': {
+            'sslmode': 'require',  # Enforce SSL connection
+        },
     }
 }
 
