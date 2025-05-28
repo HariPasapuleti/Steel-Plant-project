@@ -1,4 +1,4 @@
-# Steel Plant Machine Management System
+# Steel Plant Machine Management System 
 
 ## Overview
 The Steel Plant Machine Management System is a Django-based web application designed to streamline the management of machines in a steel plant. The system allows employees to log in, add new machines, view machine details, and raise complaints regarding machine issues. The project utilizes a user authentication system and email confirmation for account activation.
